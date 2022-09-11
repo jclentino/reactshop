@@ -1,22 +1,15 @@
 /** @type {import('next').NextConfig} */
 
+const withPwa = require('next-pwa')({
+  dest: 'public',
+  register: true, 
+  mode: 'production',
+  disable: false,
+  
+})
+
 const nextConfig = {
   reactStrictMode: true,
-  // swcMinify: true,
-  // env: {
-  //   customKey: 'customValue'
-  // },
-  // // basePath: '/dist',
-  // compress: true,
-  // async redirect(){
-  //   return [
-  //     {
-  //       source: '/hola',
-  //       destination: 'https://gndx.dev/',
-  //       permanent: true
-  //     }
-  //   ]
-  // }
 }
 
-module.exports = nextConfig
+module.exports = withPwa(nextConfig);
